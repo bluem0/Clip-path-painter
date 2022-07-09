@@ -1,0 +1,165 @@
+:root{
+    --text:polygon(50% 50%);
+}
+body{
+    background-color: rgb(61, 61, 61);
+    margin: 0;
+}
+.none{
+    display: none;
+}
+.left_board{
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    border-left: 3px solid darkgray;
+    border-right: 3px solid darkgray;
+    margin: 0 0 0 50px;
+}
+#work_place{
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    border: 3px solid darkgray;
+    transform: translate(-50%,-50%);
+    background-color: lightgray;
+    overflow: hidden;
+}
+#back_img{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+.block{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 10;
+}
+.block_move{
+    z-index: 12;
+}
+#clip_img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    clip-path: var(--text);
+    background-color: black;
+    z-index: 2;
+}
+#linex{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+    transform: translate(0,-1px);
+    z-index: 11;
+}
+#liney{
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: red;
+    transform: translate(-1px,0);
+    z-index: 11;
+}
+#points{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.points_move{
+    z-index: 11;
+}
+.point{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 5%;
+    top: 5%;
+    text-align: center;
+    border-radius: 50%;
+    border-top-left-radius: 0;
+    color: white;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 11;
+}
+.right_board{
+    float: right;
+    width: 40%;
+    height: 100%;
+    border-left: 20px solid transparent;
+    border-right: 50px solid transparent;
+}
+.control_board{
+    position: relative;
+    width: 100%;
+    height: 40%;
+    margin: 20px 0;
+    color: white;
+    border: 3px solid darkgray;
+}
+.size_board,.img_place,.img_size,.point_place,.check_board{
+    float: left;
+    position: relative;
+    width: calc(50% - 46px);
+    height: 55px;
+    margin: 15px;
+    border-radius: 5px;
+    border: 3px solid darkgray;
+}
+.label1{
+    position: absolute;
+    width: calc(15% - 3px);
+    height: 100%;
+    border-right: 3px solid darkgray;
+    text-align: center;
+}
+.sizex,.sizey,.imgx,.imgy,.imgsizex,.pointx,.pointy{
+    float: right;
+    width: 80%;
+    text-align: center;
+}
+.inputbox{
+    height:21px;
+    width:100px;
+    transform:translate(0,6px);
+}
+.imgbutton{
+    height: 21px;
+    width: 25px;
+}
+.check_board{
+    height: 260px;
+    float: right;
+    margin-bottom: 100px;
+}
+.check_button{
+    float: left;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: lightgray;
+    text-align: center;
+    margin:1px 0  ;
+}
+.check_button_black{
+    background-color: gray;
+}
+
+.text_board{
+    width: 100%;
+    height: 50%;
+    border: 3px solid darkgray;
+}
+#text_board{
+    width: 100%;
+    height: 100%;
+    font-size: x-large;
+}

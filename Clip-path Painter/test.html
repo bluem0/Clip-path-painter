@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="test.css">
+<div id="app">
+    <div class="left_board">
+        <div id="work_place" :style="{ width: sizex+'px', height: sizey+'px'}">
+            <img id="back_img" :class="{'none':!img_show}" :src="imgurl"
+                :style="{ width: imgsizex+'px', left:'calc(50% + '+imgx+'px)',top:'calc(50% + '+imgy+'px)' }">
+            <div :class="{'block block_move':!points_move,'block':points_move}"
+                :style="{width:'100%'}" @mousedown="img_move"></div>
+            <div id="clip_img" :class="{'none':!clip_show}"></div>
+            <div id="linex" :class="{'none':!points_move}" :style="{top:choseny+'%'}"></div>
+            <div id="liney" :class="{'none':!points_move}" :style="{left:chosenx+'%'}"></div>
+            <div :class="{'points_move':points_move,'none':!points_show}"
+                @mousedown="point_move" id="points"></div>
+        </div>
+    </div>
+    <div class="right_board">
+        <div class="control_board">
+            <div class="check_board">
+                <button :class="{'check_button':!points_show,'check_button check_button_black':points_show}"
+                    @click="point_show">显示所有点</button>
+                <button :class="{'check_button':!clip_show,'check_button check_button_black':clip_show}"
+                    @click="show_clip">显示预览图</button>
+                <button :class="{'check_button':!points_move,'check_button check_button_black':points_move}"
+                    @click="movepoint">移动点</button>
+                <button :class="{'check_button':points_move,'check_button check_button_black':!points_move}"
+                    @click="moveimg">移动图片</button>
+                <button :class="{'check_button':!img_show,'check_button check_button_black':img_show}"
+                    @click="show_img">显示图片</button>
+                <button class="check_button"
+                    @click="replace_img">重置图片位置</button>
+                <button class="check_button" 
+                    @click="add_point">添加点</button>
+                <button class="check_button"
+                    @click="delete_point">删除点</button>
+                <button class="check_button"
+                    @click="show_text">显示坐标</button>
+                <button class="check_button"
+                    @click="clear_points">清除所有点</button>
+                <input type="file" onchange="get_file(this)" style="margin: 30px;">
+            </div>
+            <div class="size_board">
+                <div class="label1"> 工作范围</div>
+                <div class="sizex">
+                    <button class="imgbutton" @click="sizex -= 10">-</button>
+                    x: <textarea v-model="sizex" class="inputbox"></textarea> px
+                    <button class="imgbutton" @click="sizex += 10">+</button>
+                </div>
+                <div class="sizey">
+                    <button class="imgbutton" @click="sizey -= 10">-</button>
+                    y: <textarea v-model="sizey" class="inputbox"></textarea> px
+                    <button class="imgbutton" @click="sizey += 10">+</button>
+                </div>
+            </div>
+            <div class="img_size">
+                <div class="label1"> 图片大小</div>
+                <div class="imgsizex">
+                    <button class="imgbutton" @click="imgsizex -= 10">-</button>
+                    x: <textarea v-model="imgsizex" class="inputbox"></textarea> px
+                    <button class="imgbutton" @click="imgsizex += 10">+</button>
+                </div>
+            </div>
+            <div class="img_place">
+                <div class="label1"> 图片位置</div>
+                <div class="imgx">
+                    <button class="imgbutton" @click="imgx -= 10">-</button>
+                    x: <textarea v-model="imgx" class="inputbox"></textarea> px
+                    <button class="imgbutton" @click="imgx += 10">+</button>
+                </div>
+                <div class="imgy">
+                    <button class="imgbutton" @click="imgy -= 10">-</button>
+                    y: <textarea v-model="imgy" class="inputbox"></textarea> px
+                    <button class="imgbutton" @click="imgy += 10">+</button>
+                </div>
+            </div>
+            <div class="point_place">
+                <div class="label1"> 点{{chosen}}</div>
+                <div class="pointx">
+                    <button class="imgbutton" onclick="pointx0()">-</button>
+                    x: <textarea v-model="chosenx" class="inputbox"></textarea> %
+                    <button class="imgbutton" onclick="pointx1()">+</button>
+                </div>
+                <div class="imgy">
+                    <button class="imgbutton" onclick="pointy0()">-</button>
+                    y: <textarea v-model="choseny" class="inputbox"></textarea> %
+                    <button class="imgbutton" onclick="pointy1()">+</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="text_board">
+            <textarea v-model="info" id="text_board"></textarea>
+        </div>
+    </div>
+</div>
+<script src="Vue.js"></script>
+<script src="test.js"></script>
